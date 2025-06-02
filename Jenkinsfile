@@ -17,8 +17,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 // Example deploy path - change if needed
-                sh 'mkdir -p /var/deploy/helloApp'
-                sh 'cp hello.class /var/deploy/helloApp/'
+                sh 'mkdir -p $WORKSPACE/deploy/helloApp'
+                sh 'cp hello.class $WORKSPACE/deploy/helloApp/'
             }
         }
 
