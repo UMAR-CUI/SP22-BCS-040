@@ -4,21 +4,20 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'javac hello.java'  // compile hello.java to hello.class
+                sh 'javac src/hello.java'
             }
         }
-        
+
         stage('Deploy') {
             steps {
-                // Example deploy path - change if needed
-                sh 'mkdir -p $WORKSPACE/deploy/helloApp'
-                sh 'cp hello.class $WORKSPACE/deploy/helloApp/'
+                sh 'mkdir -p "$WORKSPACE/deploy"'
+                sh 'cp src/hello.class "$WORKSPACE/deploy/"'
             }
         }
 
         stage('Run') {
             steps {
-                sh 'java -cp /var/deploy/helloApp hello'
+                sh 'java -cp "$WORKSPACE/deploy" hello'
             }
         }
     }
