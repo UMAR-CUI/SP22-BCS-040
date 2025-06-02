@@ -2,12 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'main', url: 'https://github.com/UMAR-CUI/SP22-BCS-040.git'
-            }
-        }
-        
         stage('Build') {
             steps {
                 sh 'javac hello.java'  // compile hello.java to hello.class
